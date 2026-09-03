@@ -108,3 +108,39 @@ Prospect → Production → Performance
 - **Fail-Closed Principle:** All webhook routes default to HTTP 401 DENY if the HMAC signature header is absent or invalid.
 - **Tenant Isolation:** All projects, brand brains, and telemetry events are scoped by `tenantId`.
 - **Zero Env Var Build:** The application builds with zero environment variables and safely falls back to self-contained mocks for instant verification.
+
+---
+
+## 5. Growth OS — Autonomous Growth Layer (v3.1)
+
+The Video Engine (above) is the **production engine**. Growth OS (`src/lib/growth/`) is the **intelligence & opportunity layer above it** that turns a single business outcome message into an approved, published, measured result. See `docs/GROWTH_OS.md` for the full spec.
+
+```
+BUSINESS OWNER (one message)
+      │
+      ▼
+GROWTH OS (src/lib/growth)
+  Business Understanding → Business/Brand Memory (tenant-store)
+  Signal Engine → Research Engine (research-first; honest degradation)
+  Opportunity Engine (scores; may choose a NON-video format)
+  Campaign state machine + checkpoints + approval (human default; autopilot opt-in)
+  Strategy Engine (versioned) + Decision Log
+  Cost Guard (FREE_ONLY…) + Usage Ledger + cost-to-serve
+  Publishing abstraction (OAuth; download-only fallback)
+  Performance normalization + Learning (measured data only)
+      │ video formats only (reel / 16:9 / 1:1)
+      ▼
+VIDEO ENGINE (src/lib/engine — unchanged)
+  Industry Intelligence · Brand Brain · Director · Reality-first assets
+  Pre-compose QC · render · Post-render review · Subtitles · Cost governor
+      │
+      ▼
+MEASURE → LEARN → NEXT OPPORTUNITY  (closed loop)
+```
+
+- **Contracts:** `src/lib/growth/types.ts` (entities + campaign/checkpoint state machine).
+- **Isolation:** data-access layer in `tenant-store.ts` requires `tenantId`; unknown tenants fail closed.
+- **Honesty:** providers report real availability (`/api/growth/providers`); unconfigured capabilities degrade (real footage / captions-only / download-only) — no fake generation, render, publish, or metrics.
+- **API:** `/api/growth/{organizations,campaigns,campaigns/[id],opportunities,signals,providers,connections,publications,usage}`.
+- **UI:** `/growth` command center.
+- **Tests:** `src/tests/unit/growth.test.ts` (29 tests) plus a full audit in `docs/GROWTH_OS_INTEGRATION_AUDIT.md`.
