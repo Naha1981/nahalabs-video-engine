@@ -18,7 +18,8 @@ import {
   Moon,
   Sun,
   ShieldCheck,
-  Zap
+  Zap,
+  TrendingUp
 } from 'lucide-react';
 
 export function AppHeader() {
@@ -36,6 +37,7 @@ export function AppHeader() {
 
   const navItems = [
     { href: '/', label: 'Overview', icon: Sparkles },
+    { href: '/growth', label: 'Growth OS', icon: TrendingUp },
     { href: '/studio', label: 'Studio Editor', icon: Film },
     { href: '/brand-brain', label: 'Brand Brain', icon: Brain },
     { href: '/industry-intel', label: 'Industry Intel', icon: Compass },
