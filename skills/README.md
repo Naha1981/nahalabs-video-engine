@@ -25,6 +25,7 @@ Windsurf, or any agent that loads skills.
 - [`docs/WHATSAPP_RENDER_DEPLOY.md`](../docs/WHATSAPP_RENDER_DEPLOY.md) — step-by-step Render guide
 - [`operator/reference-core-webhook.route.ts`](../operator/reference-core-webhook.route.ts) — the Core-side `/api/webhooks/whatsapp` route
 - [`.env.example`](../.env.example) — Core app environment template
+- [`reference/core-messaging/`](../reference/core-messaging) — Core-side `platform-client`, outbox dispatcher, job worker, schema + tests
 
 ---
 
