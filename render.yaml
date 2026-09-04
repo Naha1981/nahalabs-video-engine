@@ -1,0 +1,31 @@
+# Render Blueprint — deploys ONLY the WhatsApp Operator (rootDir: operator)
+
+# Usage:
+#   1. Push this repo to GitHub.
+#   2. Render → New → Blueprint → connect the repo → Render reads this file.
+#   3. It prompts you for the three secrets (sync: false) and deploys the service.
+#   4. Copy the service URL (https://<name>.onrender.com) into the Core app's OPERATOR_URL.
+
+services:
+  - type: web
+    name: nahalabs-whatsapp-operator
+    runtime: docker
+    rootDir: operator
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: "10000"
+      - key: LOG_LEVEL
+        value: info
+      - key: PAIRING_QR_TTL_SECONDS
+        value: "120"
+      - key: DATABASE_URL
+        sync: false
+      - key: WEBHOOK_SECRET
+        sync: false
+      - key: OPERATOR_API_KEY
+        sync: false

@@ -10,6 +10,13 @@ no 360dialog, no paid WhatsApp Cloud API, no NoClick.** One shared Operator serv
 
 Full contract + reference code: [`references/whatsapp-operator-contract.md`](references/whatsapp-operator-contract.md).
 
+**Runnable implementation (not just docs):**
+
+- [`../../operator`](../../operator) — Node.js + Express + Baileys + Postgres service
+- [`../../render.yaml`](../../render.yaml) — Render Blueprint
+- [`../../docs/WHATSAPP_RENDER_DEPLOY.md`](../../docs/WHATSAPP_RENDER_DEPLOY.md) — deploy guide
+- [`../../operator/reference-core-webhook.route.ts`](../../operator/reference-core-webhook.route.ts) — Core webhook
+
 ---
 
 ## 1. Two-component split (crucial rule)

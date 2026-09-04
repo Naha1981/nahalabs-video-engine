@@ -17,6 +17,15 @@ Windsurf, or any agent that loads skills.
 | [`nahalabs-oss-adoption`](nahalabs-oss-adoption/SKILL.md) | Evaluating and adopting an open-source repo/model/tool (due diligence + integration) |
 | [`nahalabs-vercel-deployment`](nahalabs-vercel-deployment/SKILL.md) | Vercel Free-Plan deployment rules, cron-job.org scheduling, and keep-alive/health |
 
+## The deployable WhatsApp Operator (runnable, not just docs)
+
+- [`operator/`](../operator) — runnable Node.js + Express + Baileys + Postgres service
+  (`src/` + `Dockerfile` + `package.json` + `.env.example` + local README)
+- [`render.yaml`](../render.yaml) — Render Blueprint (one-click deploy, free tier)
+- [`docs/WHATSAPP_RENDER_DEPLOY.md`](../docs/WHATSAPP_RENDER_DEPLOY.md) — step-by-step Render guide
+- [`operator/reference-core-webhook.route.ts`](../operator/reference-core-webhook.route.ts) — the Core-side `/api/webhooks/whatsapp` route
+- [`.env.example`](../.env.example) — Core app environment template
+
 ---
 
 ## How to use this library on a new app

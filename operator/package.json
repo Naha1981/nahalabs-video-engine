@@ -1,0 +1,24 @@
+{
+  "name": "nahalabs-whatsapp-operator",
+  "version": "1.0.0",
+  "description": "NahaLabs Messaging Platform Operator — self-owned, multi-tenant WhatsApp (Baileys) stateful service. ADR-014.",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "dependencies": {
+    "@hapi/boom": "^10.0.1",
+    "@whiskeysockets/baileys": "^6.7.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "pg": "^8.12.0",
+    "pino": "^9.3.2",
+    "pino-http": "^10.2.0",
+    "zod": "^3.24.2"
+  }
+}
