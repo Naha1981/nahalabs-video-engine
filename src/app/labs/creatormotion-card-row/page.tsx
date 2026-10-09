@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import type { ChangeEvent } from 'react';
 
 type Palette = 'white-yellow' | 'charcoal-lime' | 'paper-orange' | 'black-white';
 
@@ -20,7 +21,7 @@ export default function CreatorMotionCardRowLab() {
 
   useEffect(() => () => { if (videoUrl) URL.revokeObjectURL(videoUrl); }, [videoUrl]);
 
-  function handleVideo(event: React.ChangeEvent<HTMLInputElement>) {
+  function handleVideo(event: ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
     if (!file) return;
     setVideoUrl((old) => { if (old) URL.revokeObjectURL(old); return URL.createObjectURL(file); });
